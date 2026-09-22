@@ -10,8 +10,8 @@
     --panel: #1c1f26;
     --board: #0e1013;
     --grid: #171a1f;
-    --snake: #4caf50;
-    --snake-head: #8bd68f;
+    --snake: #e53935;
+    --snake-head: #ff8a80;
     --food: #ef5350;
     --accent: #ffb74d;
     --text: #e8eaed;
@@ -382,7 +382,7 @@ function draw(now) {
   for (let i = snake.length - 1; i >= 0; i--) {
     const s = snake[i];
     const t = i / Math.max(1, snake.length - 1);
-    ctx.fillStyle = i === 0 ? '#8bd68f' : `rgb(${58 + t * 10}, ${170 - t * 60}, ${74 + t * 10})`;
+    ctx.fillStyle = i === 0 ? '#ff8a80' : `rgb(${220 - t * 40}, ${52 + t * 6}, ${46 + t * 6})`;
     roundRect(s.x * GRID + pad, s.y * GRID + pad, GRID - pad * 2, GRID - pad * 2, i === 0 ? 6 : 4);
   }
 
@@ -393,7 +393,7 @@ function draw(now) {
   const px = direction.y !== 0 ? off : 0;
   const py = direction.x !== 0 ? off : 0;
   const fx = direction.x * off * 0.6, fy = direction.y * off * 0.6;
-  ctx.fillStyle = '#10130f';
+  ctx.fillStyle = '#1a0d0c';
   [[-px, -py], [px, py]].forEach(([ex, ey]) => {
     ctx.beginPath();
     ctx.arc(hx + ex + fx, hy + ey + fy, GRID * 0.09, 0, Math.PI * 2);
